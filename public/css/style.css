@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/07/2017, 22:26:13
+    Author     : le
+*/
+.top-buffer{
+    margin-top: 10px;
+}
+.larger-font{
+    font-size: 1.2em;
+}
+#assinatura-candidato{
+    margin-top: 20px;
+}
+.linha-assinatura{
+    border-top:1px solid black;
+    margin-top: 80px;
+    width: 50%;
+}
