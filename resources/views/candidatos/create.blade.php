@@ -4,8 +4,8 @@
 @section('title', 'Candidatos')
 
 @section('content')
-<h1 class="page-header">Administra&ccedil;&atilde;o do Sistema</h1>
-<h2 class="sub-header">Candidatos</h2>
+<!-- <h1 class="page-header">Administra&ccedil;&atilde;o do Sistema</h1> -->
+<h1 class="sub-header">Formulário de Inscrição</h1>
 <div class="container">
     <div class="flash-message">
         @foreach (['danger', 'warning', 'success', 'info'] as $msg)

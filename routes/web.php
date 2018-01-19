@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('encerrado');
+    // return view('encerrado'); // Rota para inscrições encerradas
+    return view('candidato'); // Rota para inscrições abertas
 });
 
 Route::post('/turmas/verifica/{id}','TurmaController@verificaVagas');
@@ -27,14 +28,6 @@ Route::resource('professores', 'ProfessorController');
 Route::resource('fichas', 'FichaController');
 Route::resource('turmas', 'TurmaController');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
