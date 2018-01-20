@@ -82,7 +82,7 @@ class CandidatoController extends Controller
             'turmasSelecionadas'        => 'required',
             'nome'                      => 'required',
             'rg'                        => 'required',
-            'cpf'                       => 'required|unique:candidatos',
+            'cpf'                       => 'required|cpf|unique:candidatos',
             'email'                     => 'required',
             'email'                     => 'email',
             'data_nascimento'           => 'required',

@@ -9,9 +9,9 @@
         "canducci/cep": "2.0.*",
         "doctrine/dbal": "^2.6",
         "guzzlehttp/guzzle": "^6.3",
+        "jailtonsc/validador-cpf-laravel": "^4.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "laravellegends/pt-br-validator": "5.1.*"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

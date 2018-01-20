@@ -182,6 +182,11 @@ return [
          */
         \Canducci\Cep\Providers\CepServiceProvider::class,
 
+        /*
+         * Validador de CPF
+         */
+        ValidadorCpf\CpfServiceProvider54::class,
+
     ],
 
     /*
