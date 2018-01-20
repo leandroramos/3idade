@@ -9,7 +9,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-.env*
 .env.ccex
 andamento.txt
 /database_dumps/
