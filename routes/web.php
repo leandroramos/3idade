@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('encerrado'); // Rota para inscrições encerradas
-    return view('candidato'); // Rota para inscrições abertas
-});
+// Route::get('/', function () {
+//     return view('encerrado'); // Rota para inscrições encerradas
+// });
+
+Route::get('/', 'CandidatoController@create')->name('candidato');
 
 Route::post('/turmas/verifica/{id}','TurmaController@verificaVagas');
 
