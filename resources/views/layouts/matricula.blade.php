@@ -191,6 +191,7 @@
             }
         });
 
+        $('.cpf').mask('999.999.999-99');
         $('.cep').mask('99999-999');
         $('.date-field').mask('99/99/9999');
         $('.telefone')
@@ -282,8 +283,8 @@
                 $.ajax({
 
                     method: "POST",
-                    url: 'http://www2.eca.usp.br/3idade/turmas/verifica/' + id,
-                    //url: 'http://localhost:8000/turmas/verifica/' + id,
+                    //url: 'http://www2.eca.usp.br/3idade/turmas/verifica/' + id,
+                    url: 'http://localhost:8000/turmas/verifica/' + id,
                     success: function (data) {
                         if (data > 0) {
                             $('#turmasSelecionadas').val($('#turmasSelecionadas').val() + '-' + id);

@@ -145,6 +145,13 @@
                 </div>
             </div>
             <div class="form-group row">
+                <!-- CPF -->
+                <label for="cpf" class="col-sm-2 col-form-label col-form-label-lg">CPF</label>
+                <div class="col-sm-4">
+                    <input type="text" autocomplete="off" class="form-control form-control-lg cpf" id="lgFormGroupInput" placeholder="CPF" name="cpf" value="{{ old('cpf') }}">
+                </div>
+            </div>
+            <div class="form-group row">
                 <!-- E-mail -->
                 <label for="email" class="col-sm-2 col-form-label col-form-label-lg">E-mail</label>
                 <div class="col-sm-7">

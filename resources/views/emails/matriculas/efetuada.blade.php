@@ -44,6 +44,7 @@
 	Nome: {{$candidato->nome}}<br>
 	E-mail: {{$candidato->email}}<br>
 	RG: {{$candidato->rg}}<br>
+    CPF: {{$candidato->cpf}}<br>
 	Data de nascimento: {{$candidato->data_nascimento}}<br>
 	Telefone: {{$candidato->telefone}}
 <p>	

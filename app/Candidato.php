@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Candidato extends Model
 {
-    protected $fillable = ['nome','rg','email','telefone', 'data_nascimento', 'estado_civil'];
+    protected $fillable = ['nome','rg', 'cpf', 'email','telefone', 'data_nascimento', 'estado_civil'];
     protected $guarded = ['id', 'created_at', 'update_at'];
     protected $table = 'candidatos';
 
