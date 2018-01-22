@@ -21,7 +21,7 @@ class CreateEscolaridadesTable extends Migration
             $table->string('nome');
 
             $table->integer('candidato_id')->unsigned();
-            $table->foreign('candidato_id')->references('id')->on('candidatos');
+            $table->foreign('candidato_id')->references('id')->on('candidatos')->onDelete('cascade');
 
             $table->timestamps();
         });

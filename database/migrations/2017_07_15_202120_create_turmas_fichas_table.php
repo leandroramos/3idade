@@ -16,7 +16,9 @@ class CreateTurmasFichasTable extends Migration
         Schema::create('turmas_fichas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ficha_id')->unsigned();
-            $table->foreign('ficha_id')->references('id')->on('fichas');
+            $table->integer('turma_id')->unsigned();
+            $table->foreign('ficha_id')->references('id')->on('fichas')->onDelete('cascade');
+            $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@ class CreateEnderecosTable extends Migration
             $table->string('uf', 2);
 
             $table->integer('candidato_id')->unsigned();
-            $table->foreign('candidato_id')->references('id')->on('candidatos');
+            $table->foreign('candidato_id')->references('id')->on('candidatos')->onDelete('cascade');
 
             $table->timestamps();
         });

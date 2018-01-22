@@ -20,6 +20,7 @@ class CreateCandidatosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('rg', 20);
+            $table->string('cpf', 14)->unique();
             $table->string('email');
             $table->string('telefone');
             $table->string('data_nascimento');

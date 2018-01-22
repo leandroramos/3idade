@@ -26,7 +26,7 @@ class CreatePesquisasTable extends Migration
             $table->text('observacoes')->nullable();
 
             $table->integer('candidato_id')->unsigned();
-            $table->foreign('candidato_id')->references('id')->on('candidatos');
+            $table->foreign('candidato_id')->references('id')->on('candidatos')->onDelete('cascade');
 
             $table->timestamps();
         });

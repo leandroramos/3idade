@@ -23,7 +23,7 @@ class CreateHorariosTable extends Migration
             $table->string('hora_fim', 20);
 
             $table->integer('disciplina_id')->unsigned();
-            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
+            $table->foreign('disciplina_id')->references('id')->on('disciplinas')->onDelete('cascade');
 
             $table->timestamps();
         });

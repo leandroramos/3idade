@@ -226,7 +226,10 @@
          * Datatables
          */
         $('#lista-dados').DataTable({
-            stateSave: true
+            stateSave: true,
+            "language": {
+                "search": "Pesquisar:"
+            }
         });
         
         /*

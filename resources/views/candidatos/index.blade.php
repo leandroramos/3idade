@@ -14,7 +14,7 @@
 {{-- {{ dd($candidatos[0]['disciplinas'][1]['turmas']) }} --}}
 {{-- {{ dd($candidatos[0]['turmas'][0]['horario']) }} --}}
 {{-- {{ dd($candidatos[0]['disciplinas'][0]) }} --}}
-<h1 class="page-header">Dashboard</h1>
+<h1 class="page-header">Administração do Sistema</h1>
 <h2 class="sub-header">Candidatos</h2>
 
 <div class="table-responsive">
@@ -57,7 +57,10 @@
         </ul>
 
       </td>
-      <td><a href="{{action('FichaController@show', encrypt($candidato['candidato']['id']))}}" class="btn btn-success">Ver Ficha</a></td>
+      <td>
+        <a href="{{action('FichaController@show', encrypt($candidato['candidato']['id']))}}" class="btn btn-success">Ver Ficha</a>
+        <a href="{{action('CandidatoController@destroy', encrypt($candidato['candidato']['id']))}}" class="btn btn-danger">Excluir</a>
+      </td>
     </tr>
   @endforeach
   </tbody>

@@ -22,7 +22,7 @@ class CreateTurmasTable extends Migration
             $table->integer('vagas');
 
             $table->integer('disciplina_id')->unsigned();
-            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
+            $table->foreign('disciplina_id')->references('id')->on('disciplinas')->onDelete('cascade');
 
             $table->timestamps();
         });

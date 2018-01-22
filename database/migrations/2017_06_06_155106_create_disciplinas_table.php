@@ -23,7 +23,7 @@ class CreateDisciplinasTable extends Migration
             $table->string('requisitos', 255)->nullable();
 
             $table->integer('professor_id')->unsigned();
-            $table->foreign('professor_id')->references('id')->on('professores');
+            $table->foreign('professor_id')->references('id')->on('professores')->onDelete('cascade');
 
             $table->timestamps();
         });
