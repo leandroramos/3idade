@@ -123,7 +123,7 @@ class CandidatoController extends Controller
         $this->candidato->estado_civil      = $request->estado_civil;
         $this->candidato->escolaridade      = $request->escolaridade;
         $this->candidato->ano               = env('ANO');
-        $this->candidato->escolaridade      = env('SEMESTRE');
+        $this->candidato->semestre      = env('SEMESTRE');
 
         $this->endereco->cep                = $request->cep;
         $this->endereco->rua                = $request->rua;
