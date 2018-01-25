@@ -27,7 +27,7 @@ class DisciplinaController extends Controller
     public function index()
     {
         //
-        $disciplinas = Disciplina::all();
+        $disciplinas = Disciplina::where([['ano', 2018], ['semestre', 1]])->get();
 
         return View::make('disciplinas.index')
             ->with('disciplinas', $disciplinas);
@@ -57,6 +57,8 @@ class DisciplinaController extends Controller
     {
         // As turmas estão em outra tabela no BD
         $disciplina = new Disciplina;
+        $disciplina->ano            = $request->ano;
+        $disciplina->semestre       = $request->semestre;
         $disciplina->nome           = $request->nome;
         //$disciplina->vagas          = $request->vagas;
         $disciplina->requisitos     = $request->requisitos;
@@ -140,6 +142,8 @@ class DisciplinaController extends Controller
     {
         //
         $disciplina = Disciplina::findOrFail($id);
+        $disciplina->semestre       = $request->semestre;
+        $disciplina->nome           = $request->nome;
         $disciplina->nome           = $request->nome;
         //$disciplina->vagas          = $request->vagas;
         $disciplina->requisitos     = $request->requisitos;

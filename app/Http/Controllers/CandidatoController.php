@@ -49,7 +49,9 @@ class CandidatoController extends Controller
     {   
         $departamentos = [];
         
-        $disciplinas = Disciplina::has('turmas')->with('professor')->orderBy('departamento')->get();
+        //$disciplinas = Disciplina::has('turmas')->with('professor')->orderBy('departamento')->get();
+        //dd("Ano: " . env('ANO') . " - Semestre: " . env('SEMESTRE'));
+        $disciplinas = Disciplina::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])->has('turmas')->with('professor')->orderBy('departamento')->get();
         
         foreach ($disciplinas as $disciplina) {
             array_push($departamentos, $disciplina->departamento);
