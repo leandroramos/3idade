@@ -18,12 +18,14 @@ class CreateDisciplinasTable extends Migration
         Schema::create('disciplinas', function (Blueprint $table) {
             //
             $table->increments('id');
+            $table->integer('ano');
+            $table->integer('semestre');
             $table->string('nome', 255);
             $table->integer('vagas');
             $table->string('requisitos', 255)->nullable();
 
             $table->integer('professor_id')->unsigned();
-            $table->foreign('professor_id')->references('id')->on('professores')->onDelete('cascade');
+            $table->foreign('professor_id')->references('id')->on('professores');
 
             $table->timestamps();
         });
