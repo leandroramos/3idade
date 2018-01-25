@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Disciplina;
 use App\Professor;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
 
 class DisciplinaController extends Controller
 {
@@ -55,6 +56,20 @@ class DisciplinaController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'ano'               => 'required|numeric',
+            'semestre'          => 'required',
+            'departamento'      => 'required',
+            'nome'              => 'required',
+            'professor_id'         => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect('disciplinas/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         // As turmas estão em outra tabela no BD
         $disciplina = new Disciplina;
         $disciplina->ano            = $request->ano;
@@ -128,7 +143,8 @@ class DisciplinaController extends Controller
         // Recuperando os professores
         $professores = Professor::all();
         $disciplina = Disciplina::findOrFail($id);
-        return view('disciplinas.edit',compact('disciplina', 'professores', 'departamentos'));
+        $departamentoSelecionado = $disciplina->departamento;
+        return view('disciplinas.edit',compact('disciplina', 'professores', 'departamentos', 'departamentoSelecionado'));
     }
 
     /**
@@ -141,6 +157,20 @@ class DisciplinaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validator = Validator::make($request->all(), [
+            'ano'               => 'required|numeric',
+            'semestre'          => 'required',
+            'departamento'      => 'required',
+            'nome'              => 'required',
+            'professor_id'         => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect("disciplinas/$id/edit")
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $disciplina = Disciplina::findOrFail($id);
         $disciplina->semestre       = $request->semestre;
         $disciplina->nome           = $request->nome;

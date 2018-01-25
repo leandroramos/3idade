@@ -65,7 +65,7 @@ return [
         'array'   => ':attribute deve ter pelo menos :min itens.',
     ],
     'not_in'               => 'a opção :attribute é inválida.',
-    'numeric'              => ':attribute deeve ser um número.',
+    'numeric'              => ':attribute deve ser um número.',
     'present'              => ':attribute deve estar presente.',
     'regex'                => ':attribute format é inválida.',
     'required'             => ':attribute é necessário.',
