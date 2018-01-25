@@ -40,7 +40,7 @@ class FichaController extends Controller
 
         $alunosDepartamento = [];
         
-        $disciplinas = Disciplina::has('turmas')->with('professor')->orderBy('departamento')->get();
+        $disciplinas = Disciplina::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])->has('turmas')->with('professor')->orderBy('departamento')->get();
         
         foreach ($disciplinas as $disciplina) {
             array_push($departamentos, $disciplina->departamento);
@@ -48,7 +48,7 @@ class FichaController extends Controller
 
         $departamentos = array_unique($departamentos);
 
-        $candidatos             = Candidato::with('ficha')->get();
+        $candidatos             = Candidato::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])->with('ficha')->get();
         $collectionCandidatos   = [];
         $turmas                 = [];
         $ficha                  = [];

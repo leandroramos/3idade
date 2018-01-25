@@ -27,7 +27,7 @@ class DisciplinaController extends Controller
     public function index()
     {
         //
-        $disciplinas = Disciplina::where([['ano', 2018], ['semestre', 1]])->get();
+        $disciplinas = Disciplina::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])->get();
 
         return View::make('disciplinas.index')
             ->with('disciplinas', $disciplinas);

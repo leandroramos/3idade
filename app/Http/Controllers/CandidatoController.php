@@ -186,7 +186,8 @@ class CandidatoController extends Controller
     public function index()
     {
         //
-        $candidatos             = Candidato::with('ficha')->get();
+        $candidatos             = Candidato::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])
+                                    ->with('ficha')->get();
         $collectionCandidatos   = [];
         $turmas                 = [];
         $ficha                  = [];
