@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Professor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class ProfessorController extends Controller
@@ -39,7 +40,6 @@ class ProfessorController extends Controller
      */
     public function create()
     {
-        //
         return view('professores.create');
     }
 
@@ -51,7 +51,16 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect('professores/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $professor = new Professor;
         $professor->nome = $request->nome;
         
@@ -92,6 +101,15 @@ class ProfessorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect('professores/{id}/edit')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         //
         $professor = Professor::findOrFail($id);
         $professor = new Professor;
