@@ -39,21 +39,21 @@
 </p>
 <hr>
 <p>
-	Nome: {{$candidato->nome}}<br>
-	E-mail: {{$candidato->email}}<br>
-	RG: {{$candidato->rg}}<br>
-    CPF: {{$candidato->cpf}}<br>
-	Data de nascimento: {{$candidato->data_nascimento}}<br>
-	Telefone: {{$candidato->telefone}}
+	<strong>Nome:</strong> {{$candidato->nome}}<br>
+	<strong>E-mail:</strong> {{$candidato->email}}<br>
+	<strong>RG:</strong></strong> {{$candidato->rg}}<br>
+    <strong>CPF:</strong> {{$candidato->cpf}}<br>
+	<strong>Data de nascimento:</strong> {{$candidato->data_nascimento}}<br>
+	<strong>Telefone:</strong> {{$candidato->telefone}}
 <p>	
-	CEP: {{$candidato->endereco->cep}}<br>
-	Logradouro: {{$candidato->endereco->rua}} nº {{$candidato->endereco->numero}} {{$candidato->endereco->complemento}}<br>
-	Bairro: {{$candidato->endereco->bairro}}<br>
-	Cidade: {{$candidato->endereco->cidade}}<br>
-	Estado: {{$candidato->endereco->uf}}<br>
+	<strong>CEP:</strong> {{$candidato->endereco->cep}}<br>
+	<strong>Logradouro:</strong> {{$candidato->endereco->rua}} nº {{$candidato->endereco->numero}} {{$candidato->endereco->complemento}}<br>
+	<strong>Bairro:</strong> {{$candidato->endereco->bairro}}<br>
+	<strong>Cidade:</strong> {{$candidato->endereco->cidade}}<br>
+	<strong>Estado:</strong> {{$candidato->endereco->uf}}<br>
 </p>
 <p>
-	Disciplinas:
+	<strong>Disciplinas:</strong>
 </p>
 <ul>
 @foreach($disciplinas as $disciplina)
@@ -65,6 +65,15 @@
 	</li>
 @endforeach
 </ul>
+<hr>
+<div>
+    <p><strong>Respostas à pesquisa:</strong></p>
+    <p><strong>Como soube:</strong><br>{{ $candidato->pesquisa->como_soube }}</p>
+    <p><strong>Necessita refeição:</strong><br>{{ $candidato->pesquisa->necessita_refeicao }}</p>
+    <p><strong>Atividades profissionais desenvolvidas:</strong><br>{{ $candidato->pesquisa->atividades_profissionais }}</p>
+    <p><strong>Motivo do interesse:</strong><br>{{ $candidato->pesquisa->motivo_interesse }}</p>
+    <p><strong>Observações:</strong><br>{{ $candidato->pesquisa->observacoes }}</p>
+</div>
 <hr>
 <div>
 	<p>
