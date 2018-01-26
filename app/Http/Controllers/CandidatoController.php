@@ -123,7 +123,7 @@ class CandidatoController extends Controller
         $this->candidato->estado_civil      = $request->estado_civil;
         $this->candidato->escolaridade      = $request->escolaridade;
         $this->candidato->ano               = env('ANO');
-        $this->candidato->semestre      = env('SEMESTRE');
+        $this->candidato->semestre          = env('SEMESTRE');
 
         $this->endereco->cep                = $request->cep;
         $this->endereco->rua                = $request->rua;
@@ -325,8 +325,22 @@ class CandidatoController extends Controller
     public function destroy($id)
     {
         //
-        $candidato = Candidato::findOrFail($id);
-        $candidato->delete();
-        return redirect()->route('candidatos.index')->with('alert-success','Candidato deletado!');
+        $candidato_id  = decrypt($id);
+        try {
+            $candidato = Candidato::with('turmas_fichas')->findOrFail($candidato_id);
+            foreach ($candidato->turmas_fichas as $turma_ficha) {
+                $turma = Turma::findOrFail($turma_ficha->turma_id);
+                echo "<pre>";
+                echo "<p>Turma $turma->id - Vagas: $turma->vagas</p>";
+                $turma->vagas++;
+                echo "<p>Turma $turma->id - Vagas Depois: $turma->vagas</p>";
+
+                $turma->save();
+            }
+            $candidato->delete();
+            return redirect()->route('candidatos.index')->with('alert-success','Candidato deletado!');
+        } catch (Exception $e) {
+            return redirect()->route('candidatos.index')->with('alert-danger','O candidato não pode ser deletado - ' . $e->getMessage());
+        }
     }
 }

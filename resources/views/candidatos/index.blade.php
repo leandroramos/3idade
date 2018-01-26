@@ -17,6 +17,24 @@
 <h1 class="page-header">Administração do Sistema</h1>
 <h2 class="sub-header">Candidatos</h2>
 
+<div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+    @if(Session::has('alert-' . $msg))
+
+    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="fechar">&times;</a></p>
+    @endif
+    @endforeach
+</div> <!-- end .flash-message -->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="table-responsive">
 <table id="lista-dados" class="table table-striped">
   <thead>
@@ -59,7 +77,11 @@
       </td>
       <td>
         <a href="{{action('FichaController@show', encrypt($candidato['candidato']['id']))}}" class="btn btn-success">Ver Ficha</a>
-        <a href="{{action('CandidatoController@destroy', encrypt($candidato['candidato']['id']))}}" class="btn btn-danger">Excluir</a>
+        <form action="{{ URL::route('candidatos.destroy', encrypt($candidato['candidato']['id'])) }}" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <button class="btn btn-danger">Excluir</button>
+        </form>
       </td>
     </tr>
   @endforeach
