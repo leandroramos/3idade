@@ -25,7 +25,9 @@ Route::resource('enderecos', 'EnderecoController');
 Route::resource('escolaridades', 'EscolaridadeController');
 Route::resource('horarios', 'HorarioController');
 Route::resource('pesquisas', 'PesquisaController');
-Route::resource('professores', 'ProfessorController');
+Route::resource('professores', 'ProfessorController', ['parameters' => [
+    'professores' => 'professor',
+]]);
 Route::resource('fichas', 'FichaController');
 Route::resource('turmas', 'TurmaController');
 

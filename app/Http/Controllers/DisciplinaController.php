@@ -75,18 +75,18 @@ class DisciplinaController extends Controller
         $disciplina->ano            = $request->ano;
         $disciplina->semestre       = $request->semestre;
         $disciplina->nome           = $request->nome;
-        //$disciplina->vagas          = $request->vagas;
         $disciplina->requisitos     = $request->requisitos;
         $disciplina->professor_id   = $request->professor_id;
         $disciplina->departamento   = $request->departamento;
-        //$disciplina->dia_semana     = $request->dia_semana;
-        //$disciplina->hora_inicio    = $request->hora_inicio;
-        //$disciplina->hora_fim       = $request->hora_fim;
         
-        
-        
-        $disciplina->save();
-        return redirect()->route('disciplinas.index')->with('message', 'Disciplina criada com sucesso!');
+        try {
+            $disciplina->save();
+            $request->session()->flash('alert-success', 'Disciplina cadastrada com sucesso!');
+            return Redirect()->route('disciplinas.index');
+        } catch (Exception $e) {
+            $request->session()->flash('alert-danger', 'Houve um erro.');
+            return back();
+        }
     }
 
     /**
@@ -175,15 +175,18 @@ class DisciplinaController extends Controller
         $disciplina->semestre       = $request->semestre;
         $disciplina->nome           = $request->nome;
         $disciplina->nome           = $request->nome;
-        //$disciplina->vagas          = $request->vagas;
         $disciplina->requisitos     = $request->requisitos;
         $disciplina->professor_id   = $request->professor_id;
         $disciplina->departamento   = $request->departamento;
-        //$disciplina->dia_semana     = $request->dia_semana;
-        //$disciplina->hora_inicio    = $request->hora_inicio;
-        //$disciplina->hora_fim       = $request->hora_fim;
-        $disciplina->save();
-        return redirect()->route('disciplinas.index')->with('message', 'Disciplina atualizada com sucesso!');
+
+        try {
+            $disciplina->save();
+            $request->session()->flash('alert-success', 'Disciplina atualizada com sucesso!');
+            return Redirect()->route('disciplinas.index');
+        } catch (Exception $e) {
+            $request->session()->flash('alert-danger', 'Houve um erro.');
+            return back();
+        }
     }
 
     /**
@@ -197,6 +200,6 @@ class DisciplinaController extends Controller
         //
         $disciplina = Disciplina::findOrFail($id);
         $disciplina->delete();
-        return redirect()->route('disciplinas.index')->with('alert-success','Disciplina deletada!');
+        return redirect()->route('disciplinas.index')->with('alert-danger','Disciplina deletada!');
     }
 }

@@ -64,8 +64,14 @@ class ProfessorController extends Controller
         $professor = new Professor;
         $professor->nome = $request->nome;
         
-        $professor->save();
-        return redirect()->route('professores.index')->with('message', 'Professor criado com sucesso!');
+        try {
+            $professor->save();
+            $request->session()->flash('alert-success', 'Professor cadastrado com sucesso!');
+            return Redirect()->route('professores.index');
+        } catch (Exception $e) {
+            $request->session()->flash('alert-danger', 'Houve um erro.');
+            return back();
+        }
     }
 
     /**
@@ -101,6 +107,7 @@ class ProfessorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
         $validator = Validator::make($request->all(), [
             'nome' => 'required'
         ]);
@@ -110,12 +117,18 @@ class ProfessorController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-        //
+        
         $professor = Professor::findOrFail($id);
-        $professor = new Professor;
         $professor->nome = $request->nome;
-        $professor->save();
-        return redirect()->route('professores.index')->with('message', 'Professor atualizado com sucesso!');
+
+        try {
+            $professor->save();
+            $request->session()->flash('alert-success', 'Professor atualizado com sucesso!');
+            return Redirect()->route('professores.index');
+        } catch (Exception $e) {
+            $request->session()->flash('alert-danger', 'Houve um erro.');
+            return back();
+        }
     }
 
     /**
@@ -129,6 +142,6 @@ class ProfessorController extends Controller
         //
         $professor = Professor::findOrFail($id);
         $professor->delete();
-        return redirect()->route('professores.index')->with('alert-success','Professor deletado!');
+        return redirect()->route('professores.index')->with('alert-danger','Professor deletado!');
     }
 }
