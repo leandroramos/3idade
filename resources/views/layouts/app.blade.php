@@ -141,6 +141,10 @@
 
     $(function () {
 
+        $(".delete-item").on("click", function(){
+            return confirm("Tem certeza?");
+        });
+        
         function limpa_formulario_cep() {
             // Limpa valores do formulário de cep.
             $(".rua").val("");

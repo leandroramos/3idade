@@ -50,13 +50,13 @@
                 <td>{{ $disciplina->nome }}</td>
                 <td>{{ $disciplina->vagas }}</td>
                 <td>{{ $disciplina->requisitos }}</td>
-                <td>{{ $disciplina->professor_id }}</td>
+                <td>{{ $disciplina->professor->nome }}</td>
                 <td><a href="{{action('DisciplinaController@edit', $disciplina['id'])}}" class="btn btn-warning">Editar</a></td>
                 <td>
                     <form action="{{action('DisciplinaController@destroy', $disciplina['id'])}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Deletar</button>
+                        <button class="delete-item btn btn-danger" type="submit">Deletar</button>
                     </form>
                 </td>
             </tr>

@@ -52,7 +52,7 @@
           <form action="{{action('ProfessorController@destroy', $value->id)}}" method="post">
               {{csrf_field()}}
               <input name="_method" type="hidden" value="DELETE">
-              <button class="btn btn-danger" type="submit">Deletar</button>
+              <button class="delete-item btn btn-danger" type="submit">Deletar</button>
           </form>
         </td>
       </tr>

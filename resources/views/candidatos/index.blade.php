@@ -80,7 +80,7 @@
         <form action="{{ URL::route('candidatos.destroy', encrypt($candidato['candidato']['id'])) }}" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <button class="btn btn-danger">Excluir</button>
+          <button class="delete-item btn btn-danger">Excluir</button>
         </form>
       </td>
     </tr>
