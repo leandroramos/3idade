@@ -55,16 +55,26 @@
 <p>
 	<strong>Disciplinas:</strong>
 </p>
-<ul>
-@foreach($disciplinas as $disciplina)
-	<li>
-		<strong>{{ $disciplina->nome }}</strong><br>
-		<strong>Requisitos:</strong> {{ $disciplina->requisitos }}<br>
-		<strong>Horário: </strong>{{ $disciplina->turmas[0]->horario }}<br>
-		<strong>Professor responsável: </strong>{{ $disciplina->professor->nome }}
-	</li>
-@endforeach
-</ul>
+<div id="disciplinas-escolhidas">
+    <ul>
+        @foreach($disciplinas as $disciplina)
+        <li>
+            <span class="text-primary"><strong>{{ $disciplina->nome }}</strong></span><br>
+            Requisitos: <span class="text-danger"><strong>{{ $disciplina->requisitos }}</strong></span><br>
+            Horário:  
+            @foreach($turmas as $turma)
+                @foreach($disciplina->turmas as $disciplina_turma)
+                    @if($disciplina_turma->id == $turma->id)
+                    {{ $turma->horario }}
+                    @endif
+                @endforeach
+            @endforeach
+            <br>
+            Professor respons&aacute;vel: <strong>{{ $disciplina->professor->nome }}</strong>
+        </li>
+        @endforeach
+    </ul>
+</div>
 <hr>
 <div>
     <p><strong>Respostas à pesquisa:</strong></p>
