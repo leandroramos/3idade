@@ -338,7 +338,7 @@ class CandidatoController extends Controller
                 $turma->save();
             }
             $candidato->delete();
-            return redirect()->route('candidatos.index')->with('alert-success','Candidato deletado!');
+            return redirect()->route('candidatos.index')->with('alert-danger','Candidato deletado!');
         } catch (Exception $e) {
             return redirect()->route('candidatos.index')->with('alert-danger','O candidato não pode ser deletado - ' . $e->getMessage());
         }

@@ -36,7 +36,7 @@
 <h3>Sua matrícula foi efetuada.</h3>
 <p>
 	<strong>{{ $candidato->nome }}</strong>,<br>
-	Você se matriculou na Universidade Aberta à Terceira Idade em {{ date('d/m/Y à\s H:i:s', strtotime($ficha->created_at)) }}, no segundo semestre de 2017. Por favor, entre em contato com a Comissão de Cultura e Extensão Universitária da ECA, respondendo a este e-mail ou pelo telefone <strong>(11) 3091-4067</strong>.<br>
+	Você se matriculou na Universidade Aberta à Terceira Idade em {{ date('d/m/Y à\s H:i:s', strtotime($ficha->created_at)) }}, no primeiro semestre de 2018. Por favor, entre em contato com a Comissão de Cultura e Extensão Universitária da ECA, respondendo a este e-mail ou pelo telefone <strong>(11) 3091-4067</strong>.<br>
 	Seguem os dados de sua matrícula:
 </p>
 <hr>
