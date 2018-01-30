@@ -27,7 +27,7 @@ class TurmaController extends Controller
     public function index()
     {
         //
-        $turmas = Disciplina::with('turmas')->get();
+        $turmas = Disciplina::where([['ano', env('ANO')], ['semestre', env('SEMESTRE')]])->with('turmas')->get();
 
 
         return View::make('turmas.index')
