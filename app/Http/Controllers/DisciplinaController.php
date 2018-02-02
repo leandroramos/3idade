@@ -61,7 +61,7 @@ class DisciplinaController extends Controller
             'semestre'          => 'required',
             'departamento'      => 'required',
             'nome'              => 'required',
-            'professor_id'         => 'required'
+            'professor_id'      => 'required'
         ]);
         
         if ($validator->fails()) {
