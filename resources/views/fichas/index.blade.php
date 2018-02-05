@@ -33,14 +33,16 @@
 						@if($disciplina->nome == $disciplinaDepartamento)
 						
 							<li>
-								{{ mb_convert_case(strtolower($candidato['candidato']->nome), MB_CASE_TITLE) }}
-							</li>
-							@foreach($candidato['turmas'] as $turma)
+								{{ mb_convert_case(strtolower($candidato['candidato']->nome), MB_CASE_TITLE) }}<br>
+                                E-mail: {{ $candidato['candidato']->email }}<br>
+                                Telefone: {{ $candidato['candidato']->telefone }}
+                                @foreach($candidato['turmas'] as $turma)
 
-								@if($turma->disciplina_id == $disciplina->id)
-									<p>Horário: {{ $turma->horario }}</p>
-									@endif
-							@endforeach
+                                    @if($turma->disciplina_id == $disciplina->id)
+                                        <p>Horário: {{ $turma->horario }}</p>
+                                    @endif
+                                @endforeach
+							</li>
 						@endif
 					
 
