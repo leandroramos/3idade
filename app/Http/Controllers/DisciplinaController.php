@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class DisciplinaController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Create a new controller instance..
      *
      * @return void
      */
