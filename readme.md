@@ -23,7 +23,19 @@ Sistema de matrículas no programa Universidade Aberta à Terceira Idade, conceb
 
 - git clone git@github.com:uspdev/3idade.git
 - cd 3idade
+- cp .env.example .env
+	- Ajustar o .env com os dados do seu banco de dados
+		- Assumindo que o banco já tenha sido criado
+	- Setar as variáveis ANO e SEMESTRE
+- php artisan key:generate
+- php artisan config:cache
 - composer install
 - php artisan migrate
+- **Não implementado (issue aberta)**: php artisan db:seed
 - php artisan serve
 	- Acessar http://localhost:8000 no navegador
+
+## Contribua
+
+Existem várias formas de contribuir no projeto, e todas são muito bem vindas.
+
