@@ -11,13 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        //factory(App\Professor::class, 15)->create();
-        //factory(App\Disciplina::class, 10)->create();
-        //factory(App\Candidato::class, 10)->create();
-        //factory(App\Horario::class, 10)->create();
-        //factory(App\Escolaridade::class, 10)->create();
-        //factory(App\Pesquisa::class, 10)->create();
-        factory(App\Endereco::class, 10)->create();
+        factory(App\Professor::class, 20)->create();
+        factory(App\Disciplina::class, 35)->create();
+        factory(App\Turma::class, 67)->create();
     }
 }
