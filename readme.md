@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="http://prceu.usp.br/3idade/wp-content/themes/eceu_claro/img/logo-usp.svg" width="150px" alt="Logo USP" />
   <img src="http://prceu.usp.br/3idade/wp-content/uploads/2017/05/logo_UATIvertical_cor.png" width="150px" alt="Logo UATI" />
-  <img src="http://prceu.usp.br/wp-content/uploads/2015/01/marca_assinatura_PRCEU_azul_sfundo.png" width="150px" alt="Logo PRCEU" />
+  <img src="http://prceu.usp.br/wp-content/uploads/2015/01/marca_horizontal_PRCEU_sfundo.png" width="300px" alt="Logo PRCEU-USP" />
 </p>
 # Programa Universidade Aberta à Terceira Idade
 
