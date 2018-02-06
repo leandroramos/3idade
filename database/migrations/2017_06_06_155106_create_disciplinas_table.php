@@ -21,7 +21,6 @@ class CreateDisciplinasTable extends Migration
             $table->integer('ano');
             $table->integer('semestre');
             $table->string('nome', 255);
-            $table->integer('vagas');
             $table->string('requisitos', 255)->nullable();
 
             $table->integer('professor_id')->unsigned();
