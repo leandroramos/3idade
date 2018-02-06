@@ -1,7 +1,5 @@
-<p align="center">
-  <img src="http://prceu.usp.br/3idade/wp-content/uploads/2017/05/logo_UATIvertical_cor.png" width="150px" alt="Logo UATI" />
-  <img src="http://prceu.usp.br/wp-content/uploads/2015/01/marca_horizontal_PRCEU_sfundo.png" width="300px" alt="Logo PRCEU-USP" />
-</p>
+<p><img src="http://prceu.usp.br/3idade/wp-content/uploads/2017/05/logo_UATIvertical_cor.png" width="150px" alt="Logo UATI" />
+<img src="http://prceu.usp.br/wp-content/uploads/2015/01/marca_horizontal_PRCEU_sfundo.png" width="300px" alt="Logo PRCEU-USP" /></p>
 
 # Programa Universidade Aberta à Terceira Idade
 
@@ -31,7 +29,7 @@ Sistema de matrículas no programa Universidade Aberta à Terceira Idade, conceb
 - php artisan config:cache
 - composer install
 - php artisan migrate
-- **Não implementado (issue aberta)**: php artisan db:seed
+- php artisan db:seed
 - php artisan serve
 	- Acessar http://localhost:8000 no navegador
 
